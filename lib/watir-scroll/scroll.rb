@@ -29,6 +29,16 @@ module Watir
          @browser.execute_script(*args)
       end
 
+      def by(param)
+        args = case param
+                 when Array
+                   "window.scrollBy(#{param[0]}, #{param[1]})"
+                 else
+                   raise ArgumentError, "Don't know how to scroll by: #{param}!"
+               end
+        @browser.execute_script(*args)
+      end
+
     end # Scroll
   end # Browser
 end # Watir
