@@ -18,6 +18,8 @@ module Watir
                  'window.scrollTo(document.body.scrollWidth / 2, document.body.scrollHeight / 2);'
                when :bottom, :end
                  'window.scrollTo(0, document.body.scrollHeight);'
+               when PageObject::Elements
+                 ['arguments[0].scrollIntoView();', param.element]
                when Watir::Element
                  ['arguments[0].scrollIntoView();', param]
                when Array
